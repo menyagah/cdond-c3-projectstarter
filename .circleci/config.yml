@@ -245,8 +245,8 @@ jobs:
     steps:
       # Checkout code from git
       - checkout
-      - install_awscli
       - install_ansible
+      - install_awscli
       # Add ssh keys with fingerprint
       - add_ssh_keys:
           fingerprints: ['db:bb:09:a3:56:c2:c1:f6:1f:a9:5d:b7:cb:ff:a3:4c']
