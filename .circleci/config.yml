@@ -217,10 +217,6 @@ jobs:
             npm audit --audit-level=critical
 
   deploy-infrastructure:
-    requires: [test-frontend, test-backend, scan-frontend, scan-backend]
-    filters:
-      branches:
-        only: [master]
     docker:
       # Docker image here that supports AWS CLI
       - image: cimg/python:3.10
