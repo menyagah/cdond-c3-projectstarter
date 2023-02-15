@@ -217,6 +217,10 @@ jobs:
             npm audit --audit-level=critical
 
   deploy-infrastructure:
+    requires: [test-frontend, test-backend, scan-frontend, scan-backend]
+    filters:
+      branches:
+        only: [master]
     docker:
       # Docker image here that supports AWS CLI
       - image: cimg/python:3.10
@@ -254,6 +258,8 @@ jobs:
           paths:
             - project/.circleci/ansible/inventory.txt
       # Here's where you will add some code to rollback on failure
+      - destroy-environment
+      - revert-migrations
 
   configure-infrastructure:
     docker:
@@ -279,6 +285,8 @@ jobs:
             ansible-playbook -i inventory.txt configure-server.yml
       # Here's where you will add some code to rollback on failure
       - destroy-environment
+      - revert-migrations
+
   run-migrations:
     docker:
       - image: cimg/python:3.10
