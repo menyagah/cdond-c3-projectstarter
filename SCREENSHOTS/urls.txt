@@ -1,0 +1,4 @@
+Github url: https://github.com/menyagah/cdond-c3-projectstarter
+s3-Bucket-Link: http://udapeople-f0efc8b.s3-website-us-east-1.amazonaws.com
+cloudfront-link: http://d20ayao6egshrx.cloudfront.net/#/employees
+prometheusURL: http://3.84.255.190:9090/targets?search=
